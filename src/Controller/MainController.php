@@ -39,5 +39,23 @@ class MainController extends AbstractController
         return new Response("Voici les mentions légales du site.");
     }
 
-    // exo : faire une page a propos à l'aide d'une Response pour afficher "Voic les informations concernant le site"
+    // exo : faire une page a propos à l'aide d'une Response pour afficher "Voici les informations concernant le site"
+
+    /**
+     * @Route("about", name="about")
+     */
+    public function about()
+    {
+        return new Response("Voici les informations concernant le site");
+    }
+
+    /**                //wildcard : permet de mettre des paramètres dans l'URL (paramètres GET)
+     * @Route("number/{id}", name="number")
+     */
+    public function number($id)
+    {
+        return new Response($id);
+    }
+
+    // exo : créer une route qui va afficher "Mon age est de : {valeur de l'age} " . La valeur de l'âge est donnée par la wildcard.
 }
