@@ -57,5 +57,13 @@ class MainController extends AbstractController
         return new Response($id);
     }
 
-    // exo : créer une route qui va afficher "Mon age est de : {valeur de l'age} " . La valeur de l'âge est donnée par la wildcard.
+    // exo : créer une route qui va afficher "Mon age est de : {valeur de l'age} ". La valeur de l'âge est donnée par la wildcard.
+
+    /**
+     * @Route("age/{age}", name="age")
+     */
+    public function age($age)
+    {
+        return new Response("Mon âge est de : " . $age . " ans.");
+    }
 }
