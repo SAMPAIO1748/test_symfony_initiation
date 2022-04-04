@@ -66,4 +66,27 @@ class MainController extends AbstractController
     {
         return new Response("Mon âge est de : " . $age . " ans.");
     }
+
+    /*$tableau_articles = [
+        1 => [
+            "titre" => "Vive la Bretagne",
+            "contenu" => "La Bretagne c'est fantastique",
+            "id" => 1
+        ],
+        2 => [
+            "titre" => "Vive la Normandie",
+            "contenu" => "La Normandie c'est magnifique",
+            "id" => 2,
+        ],
+        3 => [
+            "titre" => "Vive la Guyane",
+            "contenu" => "La Guyane c'est merveilleux",
+            "id" => 3
+
+        ]
+    ]
+
+    Exercice : crréer une route et une fonction qui va afficher le titre de l'article qui sera selectionné par la wildcard
+
+    */
 }
