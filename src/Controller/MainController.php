@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
@@ -29,4 +30,14 @@ class MainController extends AbstractController
         var_dump("bienvenue sur notre site");
         die;
     }
+
+    /**
+     * @Route("legal", name="mentions_legales")
+     */
+    public function mentionsLegales()
+    {
+        return new Response("Voici les mentions légales du site.");
+    }
+
+    // exo : faire une page a propos à l'aide d'une Response pour afficher "Voic les informations concernant le site"
 }
