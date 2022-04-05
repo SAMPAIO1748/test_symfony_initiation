@@ -135,4 +135,17 @@ class MainController extends AbstractController
             return new Response("Vous avez " . $age . " ans. Vous ne pouvez pas jouer au poker.");
         }
     }
+
+    /**
+     * @Route("bienvenue", name="bienvenue")
+     */
+    public function bienvenue()
+    {
+        // la méthode redirectToRoute est une méthode qui vient de l'AbstractController qui redirige vers une route créer dans un controller.
+        return $this->redirectToRoute('welcome');
+    }
+
+    // Exercice : créer la route poker avec une wildcard . Cette fois ci si l'age est inférieur à 18, on redirige vers une route enfant qui
+    // affiche : "Vous avez "age" ans. Vous ne pouvez pas jouer au poker." . Si l'age est supérieur ou égal à 18, on redirige vers la route adulte
+    // qui affiche: "Vous avez "age" ans. Vous pouver jouer au poker".
 }
