@@ -1,8 +1,13 @@
 {% extends "bases.html.twig" %}
 
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{asset('css/style.css')}}">
+
+{% endblock %}
+
 {% block main %}
 	{# ici je remplis le block main qui a été crée dans le fichier bases.html.twig qui est hérité en début de code
-				    pour pouvoir faire appel à nos blocks#}
+							    pour pouvoir faire appel à nos blocks#}
 
 
 	{{ parent() }}

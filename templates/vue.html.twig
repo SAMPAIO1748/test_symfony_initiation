@@ -5,4 +5,8 @@
 	<h2>Twig permet de créer des vues en HTML</h2>
 	<p>Cela permet d'avoir des pages web beaucoup jolies et complètes qu'avec simplement new Response.</p>
 	<a href="{{ path('view') }}">View</a>
+	<img
+	src="{{ asset('img/porsche-model.png') }}" alt="">
+{# la fonction asset permet d'accéder au dossier public où se trouvera tout les fichiers
+audio, video et images ainsi que les fichiers css et javascript #}
 {% endblock %}
