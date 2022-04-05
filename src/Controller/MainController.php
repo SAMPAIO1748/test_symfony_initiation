@@ -176,4 +176,15 @@ class MainController extends AbstractController
             return $this->redirectToRoute('adulte');
         }
     }
+
+    /**
+     * @Route("vue", name="vue")
+     */
+    public function vue()
+    {
+        // render est une méthode de l'AbstractController qui renvoie vers une fichier twig (une vue)
+        return $this->render('vue.html.twig');
+    }
+
+    // Exercice créer une route view qui va retourné une vue qui contiendra un h1, un h2, un p, un table 
 }
