@@ -1,44 +1,36 @@
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
-	</head>
-	<body>
+{% extends "bases.html.twig" %}
 
-		<h1>Titre : View</h1>
-		<h2>Sous-titre : view twig</h2>
-		<p>Lorem ipsum dolor, 
-																					        sit amet consectetur adipisicing elit. 
-																					        Veritatis accusamus praesentium possimus mollitia aspernatur officia eveniet modi?
-																					         Quaerat, explicabo ea nihil ex suscipit alias exercitationem dolor dignissimos
-																					          atque sint minima!</p>
+{% block main %}
+	<h1>Titre : View</h1>
+	<h2>Sous-titre : view twig</h2>
+	<p>Lorem ipsum dolor, 
+																										        sit amet consectetur adipisicing elit. 
+																										        Veritatis accusamus praesentium possimus mollitia aspernatur officia eveniet modi?
+																										         Quaerat, explicabo ea nihil ex suscipit alias exercitationem dolor dignissimos
+																										          atque sint minima!</p>
 
-		<table>
-			<thead>
-				<tr>
-					<th>Lettre</th>
-					<th>Chiffre</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>A</td>
-					<td>1</td>
-				</tr>
-				<tr>
-					<td>B</td>
-					<td>2</td>
-				</tr>
-				<tr>
-					<td>C</td>
-					<td>3</td>
-				</tr>
-			</tbody>
-		</table>
+	<table>
+		<thead>
+			<tr>
+				<th>Lettre</th>
+				<th>Chiffre</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>A</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>B</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td>C</td>
+				<td>3</td>
+			</tr>
+		</tbody>
+	</table>
 
-		<img src="https://symfony.com/images/opengraph/symfony.png" alt="">
-	</body>
-</html>
+	<img src="https://symfony.com/images/opengraph/symfony.png" alt="">
+{% endblock %}

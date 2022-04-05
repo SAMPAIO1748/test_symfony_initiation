@@ -1,20 +1,12 @@
-{% include "vue.html.twig" %}
+{% extends "bases.html.twig" %}
+
+{# include "vue.html.twig" #}
 {# include permet d'inclure le code d'un fichier twig dans un autre fichier twig #}
 
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
-	</head>
-	<body>
-
-		{% for ligne in tableau %}
-			<h1>{{ ligne.ville }}</h1>
-			<h2>{{ ligne.code_postal }}</h2>
-		{% endfor %}
-
-	</body>
-</html>
+	{% block main %}
+		{% for ligne in tableau %}<h1>
+		{{ ligne.ville }}
+		</h1><h2>
+		{{ ligne.code_postal }}
+	</h2>
+{% endfor %}{% endblock %}

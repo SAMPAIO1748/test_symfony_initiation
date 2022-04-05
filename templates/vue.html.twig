@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
-	</head>
-	<body>
+{% extends "bases.html.twig" %}
 
-		<h1>Voici une magnifique vue</h1>
-		<h2>Twig permet de créer des vues en HTML</h2>
-		<p>Cela permet d'avoir des pages web beaucoup jolies et complètes qu'avec simplement new Response.</p>
-		<a href="{{ path('view') }}">View</a>
-	</body>
-</html>
+{% block main %}
+	<h1>Voici une magnifique vue</h1>
+	<h2>Twig permet de créer des vues en HTML</h2>
+	<p>Cela permet d'avoir des pages web beaucoup jolies et complètes qu'avec simplement new Response.</p>
+	<a href="{{ path('view') }}">View</a>
+{% endblock %}
