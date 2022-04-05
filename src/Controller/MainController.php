@@ -120,4 +120,19 @@ class MainController extends AbstractController
             return new Response("L'article n'existe pas !");
         }
     }
+
+    // Exercice : creer une route play avec une wildcard 'age', si age est inféieur à 18 alors il affiche "Vous avez "age" ans. 
+    //Vous ne pouvez pas jouer au poker.". Si l'age est supérieur à 18 alors il affiche "Vous avez "age" ans. Vous pouver jouer au poker".
+
+    /**
+     * @Route("play/{age}", name="play")
+     */
+    public function play($age)
+    {
+        if ($age >= 18) {
+            return new Response("Vous avez " . $age . " ans. Vous pouvez jouer au poker.");
+        } else {
+            return new Response("Vous avez " . $age . " ans. Vous ne pouvez pas jouer au poker.");
+        }
+    }
 }
