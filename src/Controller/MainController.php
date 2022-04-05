@@ -8,6 +8,25 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
+
+    private $tableau_articles = [
+        1 => [
+            "titre" => "Vive la Bretagne",
+            "contenu" => "La Bretagne c'est fantastique",
+            "id" => 1
+        ],
+        2 => [
+            "titre" => "Vive la Normandie",
+            "contenu" => "La Normandie c'est magnifique",
+            "id" => 2,
+        ],
+        3 => [
+            "titre" => "Vive la Guyane",
+            "contenu" => "La Guyane c'est merveilleux",
+            "id" => 3
+        ]
+    ];
+
     /**
      * @Route("/home", name="home")
      */
@@ -229,5 +248,32 @@ class MainController extends AbstractController
         ];
 
         return $this->render("tableau.html.twig", ['tableau' => $tableau]);
+    }
+
+    // Exercice : utiliser le tableau $tableau_articles, pour créer une route qui va  afficher la liste des titre des articles
+    // Faire une deuxième route qui va afficher le titre et le contenu d'un article en fonction de son id.
+
+    /**
+     * @Route("articles", name="article_list")
+     */
+    public function articleList()
+    {
+        $articles = $this->tableau_articles;
+
+        return $this->render("article_list.html.twig", ['articles' => $articles]);
+    }
+
+    /**
+     * @Route("article/{id}", name="article_show")
+     */
+    public function articleShow($id)
+    {
+
+        if (array_key_exists($id, $this->tableau_articles)) {
+            $article = $this->tableau_articles[$id];
+            return $this->render('article_show.html.twig', ['article' => $article]);
+        } else {
+            return $this->redirectToRoute('article_list');
+        }
     }
 }
