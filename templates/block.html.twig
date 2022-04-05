@@ -1,7 +1,12 @@
 {% extends "bases.html.twig" %}
 
 {% block main %}
+	{# ici je remplis le block main qui a été crée dans le fichier bases.html.twig qui est hérité en début de code
+				    pour pouvoir faire appel à nos blocks#}
 
+
+	{{ parent() }}
+	{# la fonction parent() permet de conserver le code écrit dans un block crée dans un autre fichier #}
 	<h1>Je remplis mon block main</h1>
 
 {% endblock %}

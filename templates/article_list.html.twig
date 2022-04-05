@@ -6,6 +6,7 @@
 	{% for article in articles %}
 		<h1>
 			<a href="{{ path('article_show', {'id' : article.id}) }}">{{article.titre}}</a>
+			{# la fonction path permet de faire des liens vers des routes que l'on a créée dans un Controller#}
 		</h1>
 	{% endfor %}
 
