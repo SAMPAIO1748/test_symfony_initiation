@@ -186,5 +186,13 @@ class MainController extends AbstractController
         return $this->render('vue.html.twig');
     }
 
-    // Exercice créer une route view qui va retourné une vue qui contiendra un h1, un h2, un p, un table 
+    // Exercice créer une route view qui va retourné une vue qui contiendra un h1, un h2, un p, un table , une image
+
+    /**
+     * @Route("view", name="view")
+     */
+    public function view()
+    {
+        return $this->render("view.html.twig");
+    }
 }
