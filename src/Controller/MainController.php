@@ -148,4 +148,32 @@ class MainController extends AbstractController
     // Exercice : créer la route poker avec une wildcard . Cette fois ci si l'age est inférieur à 18, on redirige vers une route enfant qui
     // affiche : "Vous avez "age" ans. Vous ne pouvez pas jouer au poker." . Si l'age est supérieur ou égal à 18, on redirige vers la route adulte
     // qui affiche: "Vous avez "age" ans. Vous pouver jouer au poker".
+
+    /**
+     * @Route("enfant", name="enfant")
+     */
+    public function enfant()
+    {
+        return new Response("Vous avez moins de 18 ans. Vous ne pouvez pas jouer au poker.");
+    }
+
+    /**
+     * @Route("adulte", name="adulte")
+     */
+    public function adulte()
+    {
+        return new Response("Vous avez plus de 18 ans. Vous pouvez jouer au poker.");
+    }
+
+    /**
+     * @Route("poker/{age}", name="poker")
+     */
+    public function poker($age)
+    {
+        if ($age < 18) {
+            return $this->redirectToRoute('enfant');
+        } else {
+            return $this->redirectToRoute('adulte');
+        }
+    }
 }
