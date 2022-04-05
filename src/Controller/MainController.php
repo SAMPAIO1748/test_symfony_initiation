@@ -276,4 +276,12 @@ class MainController extends AbstractController
             return $this->redirectToRoute('article_list');
         }
     }
+
+    /**
+     * @Route("block", name="block")
+     */
+    public function block()
+    {
+        return $this->render('block.html.twig');
+    }
 }
