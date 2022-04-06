@@ -1,11 +1,22 @@
 {% extends "bases.html.twig" %}
 
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/article_style.css') }}">
+{% endblock %}
+
 {% block main %}
-	<h1>
-		{{article.titre}}
-	</h1>
-	<h2>
-		{{article.contenu}}
-	</h2>
+
+	<div class="container">
+		<div class="title fluid">
+			<h1>
+				{{article.titre}}
+			</h1>
+			<h2>
+				{{article.contenu}}
+			</h2>
+		</div>
+
+	</div>
+
 
 {% endblock %}

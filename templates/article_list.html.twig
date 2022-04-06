@@ -1,14 +1,21 @@
 {% extends "bases.html.twig" %}
 
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/article_style.css') }}">
+{% endblock %}
+
 {% block main %}
+	<div class="container">
 
-	{% for article in articles %}
-		<h1>
-			<a href="{{ path('article_show', {'id' : article.id}) }}">{{article.titre}}</a>
-			{# la fonction path permet de faire des liens vers des routes que l'on a créée dans un Controller#}
-		</h1>
-	{% endfor %}
-
+		{% for article in articles %}
+			<div class="title">
+				<h1>
+					<a href="{{ path('article_show', {'id' : article.id}) }}">{{article.titre}}</a>
+					{# la fonction path permet de faire des liens vers des routes que l'on a créée dans un Controller#}
+				</h1>
+			</div>
+		{% endfor %}
+	</div>
 {% endblock %}
 
 {# sur les fichiers article_list.html.twig et article_show.html.twig 

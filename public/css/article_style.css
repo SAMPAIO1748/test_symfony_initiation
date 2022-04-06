@@ -1,0 +1,41 @@
+body{
+    background-color: DarkCyan;
+}
+
+.container{
+    width: 95%;
+    margin: 0 auto;
+    background-color: DeepSkyBlue;
+    border: solid 5px navy;
+    border-radius: 20px;
+    box-shadow: black 5px 5px;
+    height: 250px;
+}
+
+.title{
+    width: 45%;
+    margin: 1% 2%;
+    float: left;
+    text-align: center;
+    border: solid 5px navy;
+    border-radius: 20px;
+    background-color: DarkTurquoise;
+}
+
+.title a{
+    text-decoration: none;
+    color: MidnightBlue;
+}
+
+.fluid{
+    width : 90%;
+    margin: 1% 5%;
+}
+
+.fluid h1{
+    color: darkred;
+}
+
+.fluid h2{
+    color: darkblue;
+}
