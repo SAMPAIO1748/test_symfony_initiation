@@ -4,9 +4,11 @@
 {# include permet d'inclure le code d'un fichier twig dans un autre fichier twig #}
 
 	{% block main %}
-		{% for ligne in tableau %}<h1>
+		{% for ligne in tableau %}
+			<h1>
 		{{ ligne.ville }}
-		</h1><h2>
+		</h1>
+			<h2>
 		{{ ligne.code_postal }}
 	</h2>
 {% endfor %}{% endblock %}
