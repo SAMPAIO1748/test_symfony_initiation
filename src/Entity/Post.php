@@ -27,6 +27,16 @@ class Post
      */
     private $content;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="posts")
+     */
+    private $category;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Tag::class, inversedBy="posts")
+     */
+    private $tag;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +62,30 @@ class Post
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getTag(): ?Tag
+    {
+        return $this->tag;
+    }
+
+    public function setTag(?Tag $tag): self
+    {
+        $this->tag = $tag;
 
         return $this;
     }
