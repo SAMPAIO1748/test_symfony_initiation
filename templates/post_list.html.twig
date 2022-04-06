@@ -1,0 +1,21 @@
+{% extends "bases.html.twig" %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/article_style.css') }}">
+{% endblock %}
+
+{% block main %}
+
+	<div class="container">
+
+		{% for post in posts %}
+			<div class="title">
+				<h1>{{ post.title }}</h1>
+			</div>
+
+		{% endfor %}
+
+	</div>
+
+
+{% endblock %}
