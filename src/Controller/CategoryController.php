@@ -63,13 +63,15 @@ class CategoryController extends AbstractController
         // et de les traiter
         $categoryForm->handleRequest($request);
 
-        // la fonction persist va regarder ce que l'on a fait sur category et
-        // réaliser le code pour faire le CREATE ou le UPDATE en fonction de l'origine de la category  
-        //$entityManagerInterface->persist($category);
-        // la fonction flush enregistre dans la bdd.
-        //$entityManagerInterface->flush();
+        if ($categoryForm->isSubmitted() && $categoryForm->isValid()) {
+            // la fonction persist va regarder ce que l'on a fait sur category et
+            // réaliser le code pour faire le CREATE ou le UPDATE en fonction de l'origine de la category  
+            $entityManagerInterface->persist($category);
+            // la fonction flush enregistre dans la bdd.
+            $entityManagerInterface->flush();
 
-        //return $this->redirectToRoute('category_list');
+            return $this->redirectToRoute('category_list');
+        }
 
         return $this->render('category_form.html.twig', ['categoryForm' => $categoryForm->createView()]);
     }
