@@ -1,0 +1,9 @@
+{% extends "bases.html.twig" %}
+
+{% block main %}
+
+	{% for tag in tags %}
+		<h2>{{ tag.name }}</h2>
+	{% endfor %}
+
+{% endblock %}

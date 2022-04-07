@@ -38,4 +38,7 @@ class CategoryController extends AbstractController
 
         return $this->render("category_show.html.twig", ['category' => $category]);
     }
+
+    // Exercice créer les deux méthodes qui permettent d'afficher la liste des tag
+    // et un tag en particulier à l'aide de son id
 }
