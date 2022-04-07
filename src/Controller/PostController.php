@@ -96,4 +96,21 @@ class PostController extends AbstractController
 
         return $this->render("post_form.html.twig", ['postForm' => $postForm->createView()]);
     }
+
+    /**
+     * @Route("delete/post/{id}", name="delete_post")
+     */
+    public function deletePost(
+        $id,
+        EntityManagerInterface $entityManagerInterface,
+        PostRepository $postRepository
+    ) {
+        $post = $postRepository->find($id);
+
+        // remove supprime le post
+        $entityManagerInterface->remove($post);
+        $entityManagerInterface->flush();
+
+        return $this->redirectToRoute('post_list');
+    }
 }
