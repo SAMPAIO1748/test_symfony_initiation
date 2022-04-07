@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Form\PostType;
 use App\Repository\PostRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -39,5 +42,34 @@ class PostController extends AbstractController
         $post = $postRepository->find($id);
 
         return $this->render("post_show.html.twig", ['post' => $post]);
+    }
+
+    // Exercice : créer la fonction qui va modifier un post 
+    // (dans le fichier post_form.html.twig, vous pouvez utiliser la fonction form(postForm))
+
+    /**
+     * @Route("update/post/{id}", name="post_update")
+     */
+    public function postUpdate(
+        $id,
+        PostRepository $postRepository,
+        EntityManagerInterface $entityManagerInterface,
+        Request $request
+    ) {
+
+        $post = $postRepository->find($id);
+
+        $postForm = $this->createForm(PostType::class, $post);
+
+        $postForm->handleRequest($request);
+
+        if ($postForm->isSubmitted() && $postForm->isValid()) {
+            $entityManagerInterface->persist($post);
+            $entityManagerInterface->flush();
+
+            return $this->redirectToRoute('post_list');
+        }
+
+        return $this->render("post_form.html.twig", ['postForm' => $postForm->createView()]);
     }
 }
