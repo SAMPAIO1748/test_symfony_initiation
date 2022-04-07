@@ -65,8 +65,6 @@ class TagController extends AbstractController
             return $this->redirectToRoute('tag_list');
         }
 
-
-
         return $this->render("tag_form.html.twig", ['tagForm' => $tagForm->createView()]);
     }
 }
