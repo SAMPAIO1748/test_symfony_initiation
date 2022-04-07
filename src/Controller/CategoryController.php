@@ -78,4 +78,7 @@ class CategoryController extends AbstractController
 
     // exerice créer une méthode qui modifie le name d'un tag en fonction de son id et le name sera :
     // nouveau tag modifié
+
+    // nouvel exercie : refaire la méthode update_tag pour enregistrer les modifications
+    // faites dans le formulaire du tag
 }

@@ -1,0 +1,20 @@
+{% extends "bases.html.twig" %}
+
+{% block main %}
+
+	{{ form_start(tagForm) }}
+
+	{{ form_label(tagForm.name, 'Nom du tag : ', {'label_attr' : {'class' : 'lable'} } ) }}
+	{{ form_widget(tagForm.name, {'attr' : { 'class' : 'input', 'placeholder' : 'Nom du Tag' }}) }}
+
+	{{ form_label(tagForm.description, 'Description du tag : ', {'label_attr' : {'class' : 'lable'} } ) }}
+	{{ form_widget(tagForm.description, {'attr' : { 'class' : 'input', 'placeholder' : 'Description du Tag' }}) }}
+
+	{{ form_label(tagForm.color, 'Couleur du tag : ', {'label_attr' : {'class' : 'lable'} } ) }}
+	{{ form_widget(tagForm.color, {'attr' : { 'class' : 'input', 'placeholder' : 'Couleur du Tag' }}) }}
+
+	{{ form_widget(tagForm.Enregistrer, {'attr' : { 'class' : 'input' }}) }}
+
+	{{ form_end(tagForm) }}
+
+{% endblock %}
