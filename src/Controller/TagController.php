@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Tag;
 use App\Form\TagType;
 use App\Repository\TagRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -53,6 +54,30 @@ class TagController extends AbstractController
     ) {
 
         $tag = $tagRepository->find($id);
+
+        $tagForm = $this->createForm(TagType::class, $tag);
+
+        $tagForm->handleRequest($request);
+
+        if ($tagForm->isSubmitted() && $tagForm->isValid()) {
+            $entityManagerInterface->persist($tag);
+            $entityManagerInterface->flush();
+
+            return $this->redirectToRoute('tag_list');
+        }
+
+        return $this->render("tag_form.html.twig", ['tagForm' => $tagForm->createView()]);
+    }
+
+    /**
+     * @Route("create/tag", name="create_tag")
+     */
+    public function createTag(
+        EntityManagerInterface $entityManagerInterface,
+        Request $request
+    ) {
+
+        $tag = new Tag();
 
         $tagForm = $this->createForm(TagType::class, $tag);
 

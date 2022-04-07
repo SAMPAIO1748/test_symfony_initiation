@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -81,4 +82,33 @@ class CategoryController extends AbstractController
 
     // nouvel exercie : refaire la méthode update_tag pour enregistrer les modifications
     // faites dans le formulaire du tag
+
+    /**
+     * @Route("create/category", name="create_category")
+     */
+    public function createCategory(
+        EntityManagerInterface $entityManagerInterface,
+        Request $request
+    ) {
+        $category = new Category();
+
+        // Création du formulaire
+        $categoryForm = $this->createForm(CategoryType::class, $category);
+
+        // HandleRequest permet de récupérer les informations rentrées dans le formulaire
+        // et de les traiter
+        $categoryForm->handleRequest($request);
+
+        if ($categoryForm->isSubmitted() && $categoryForm->isValid()) {
+            // la fonction persist va regarder ce que l'on a fait sur category et
+            // réaliser le code pour faire le CREATE ou le UPDATE en fonction de l'origine de la category  
+            $entityManagerInterface->persist($category);
+            // la fonction flush enregistre dans la bdd.
+            $entityManagerInterface->flush();
+
+            return $this->redirectToRoute('category_list');
+        }
+
+        return $this->render('category_form.html.twig', ['categoryForm' => $categoryForm->createView()]);
+    }
 }
