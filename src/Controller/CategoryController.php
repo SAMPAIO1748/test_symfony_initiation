@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -49,19 +51,27 @@ class CategoryController extends AbstractController
     public function categoryUpdate(
         $id,
         CategoryRepository $categoryRepository,
-        EntityManagerInterface $entityManagerInterface
+        EntityManagerInterface $entityManagerInterface,
+        Request $request
     ) {
         $category = $categoryRepository->find($id);
 
-        $category->setName("Nouvelle catégorie modifiée");
+        // Création du formulaire
+        $categoryForm = $this->createForm(CategoryType::class, $category);
+
+        // HandleRequest permet de récupérer les informations rentrées dans le formulaire
+        // et de les traiter
+        $categoryForm->handleRequest($request);
 
         // la fonction persist va regarder ce que l'on a fait sur category et
         // réaliser le code pour faire le CREATE ou le UPDATE en fonction de l'origine de la category  
-        $entityManagerInterface->persist($category);
+        //$entityManagerInterface->persist($category);
         // la fonction flush enregistre dans la bdd.
-        $entityManagerInterface->flush();
+        //$entityManagerInterface->flush();
 
-        return $this->redirectToRoute('category_list');
+        //return $this->redirectToRoute('category_list');
+
+        return $this->render('category_form.html.twig', ['categoryForm' => $categoryForm->createView()]);
     }
 
     // exerice créer une méthode qui modifie le name d'un tag en fonction de son id et le name sera :

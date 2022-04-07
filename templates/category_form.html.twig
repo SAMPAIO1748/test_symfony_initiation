@@ -1,0 +1,24 @@
+{% extends "bases.html.twig" %}
+
+{% block main %}
+	{# form(categoryForm) #}
+
+	{#
+											{{ form_row(categoryForm.name) }}
+											{{ form_row(categoryForm.description) }}
+											{{ form_row(categoryForm.Enregistrer) }}
+										#}
+
+	{# Codage de la vue du formulaire #}
+
+	{{form_start(categoryForm)}}
+
+	{{form_label(categoryForm.name, 'Nom de la catégorie :', {'label_attr' : {'class' : 'label'} } ) }}
+	{{form_widget(categoryForm.name, {'attr' : {'class' : 'input', 'placeholder' : 'Nom de la catégorie'} } ) }}
+
+	{{form_label(categoryForm.description, 'Description de la catégorie :', {'label_attr' : {'class' : 'label'} } ) }}
+	{{form_widget(categoryForm.description, {'attr' : {'class' : 'input', 'placeholder' : 'Description de la catégorie'} } ) }}
+
+	{{form_widget(categoryForm.Enregistrer, {'attr' : {'class' : 'input'} } ) }}
+
+{{form_end(categoryForm)}}{% endblock %}
