@@ -39,3 +39,11 @@ body{
 .fluid h2{
     color: darkblue;
 }
+
+.update a{
+    color : green;
+}
+
+.delete a{
+    color: red;
+}
